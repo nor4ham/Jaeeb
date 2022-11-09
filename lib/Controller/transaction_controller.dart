@@ -8,10 +8,10 @@ import '../Veiw/widgets/needs.dart';
 class TransactionController extends GetxController {
   final index = 0.obs;
   var Transactions = [Needs(), Expenses(), ExtraIncome()];
-  final colorButtonNeeds = ThemeApp.gray.obs;
+  final colorButtonNeeds = ThemeApp.darkGreen.obs;
   final colorButtonExpenses = ThemeApp.gray.obs;
   final colorButtonExtraIncome = ThemeApp.gray.obs;
-  final colorButtonNeedsLine = ThemeApp.gray.withOpacity(0.0).obs;
+  final colorButtonNeedsLine = ThemeApp.darkGreen.obs;
   final colorButtonExpensesLine = ThemeApp.gray.withOpacity(0.0).obs;
   final colorButtonExtraIncomeLine = ThemeApp.gray.withOpacity(0.0).obs;
   void isNeeds() {

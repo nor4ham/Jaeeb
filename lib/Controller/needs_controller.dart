@@ -15,8 +15,6 @@ class NeedsController extends GetxController {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-
-
           TextWidget(
             text: 'فاتوره الكهرباء',
             color: ThemeApp.black,

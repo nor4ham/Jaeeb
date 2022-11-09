@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:jaeeb/theme%20app.dart';
 
 import '../../Controller/needs_controller.dart';
+import 'button.dart';
 import 'dropdown_list_widget.dart';
 import 'text_field.dart';
 import 'text_widget.dart';
@@ -57,43 +58,69 @@ class Needs extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            dropdownListWidget(dropdownvalue: controller.dropdownvalue, items: controller.items,),
+            dropdownListWidget(
+              dropdownvalue: controller.dropdownvalue,
+              items: controller.items,
+            ),
+            const SizedBox(
+              height: 50,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 TextWidget(
-                  text: 'المبلغ',
+                  text: 'اختار التاريخ ',
                   color: ThemeApp.darkGreen,
                   fontSize: 14,
                   fontWeight: FontWeight.w900,
                 ),
               ],
             ),
+            const SizedBox(
+              height: 10,
+            ),
+            TextFieldWidget(
+              controller: controller.controllerMoney.value,
+              hintText: 'التاريخ  ',
+            ),
+            const SizedBox(
+              height: 30,
+            ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 TextWidget(
-                  text: 'المبلغ',
+                  text: 'Toggle ',
+                  color: ThemeApp.darkGreen,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w900,
+                ),
+                TextWidget(
+                  text: 'احتساب الالتزام كل شهر ',
                   color: ThemeApp.darkGreen,
                   fontSize: 14,
                   fontWeight: FontWeight.w900,
                 ),
               ],
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                TextWidget(
-                  text: 'المبلغ',
-                  color: ThemeApp.darkGreen,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w900,
-                ),
-              ],
+            const SizedBox(
+              height: 50,
+            )
+          ],
+        ),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const SizedBox(
+              height: 50,
+            ),
+            ButtonWidget(
+              text: 'اضافة العمليه ',
+              onPressed: () {},
             ),
           ],
         ),
-        Column(),
       ],
     );
   }
