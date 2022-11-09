@@ -8,7 +8,7 @@ import 'package:syncfusion_flutter_charts/charts.dart';
 import '../Controller/home_controller.dart';
 import '../theme app.dart';
 import 'widgets/home_card.dart';
-import 'widgets/text.dart';
+import 'widgets/text_widget.dart';
 
 class Home extends StatelessWidget {
   Home({super.key});
@@ -16,9 +16,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
+      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
@@ -86,17 +84,20 @@ class Home extends StatelessWidget {
                 ],
               ),
               SfCircularChart(
-                palette: <Color>[
+                palette: const <Color>[
                   ThemeApp.darkGreen,
+                  ThemeApp.darkOrange,
                   ThemeApp.green,
                   ThemeApp.orange,
-                  ThemeApp.darkOrange
                 ],
                 annotations: <CircularChartAnnotation>[
                   CircularChartAnnotation(
                     widget: Container(
-                        child: Text(
-                      'الرسم \nالبياني',
+                        child: TextWidget(
+                      text: "الرسم البياني",
+                      fontSize: 18,
+                      color: ThemeApp.black,
+                      fontWeight: FontWeight.bold,
                     )),
                   )
                 ],
@@ -104,8 +105,8 @@ class Home extends StatelessWidget {
                     isVisible: true,
                     overflowMode: LegendItemOverflowMode.wrap,
                     position: LegendPosition.bottom,
-                    iconHeight: 20,
-                    iconWidth: 20,
+                    iconHeight: 40,
+                    iconWidth: 15,
                     itemPadding: 20,
                     textStyle: GoogleFonts.ibmPlexSansArabic(fontSize: 15)),
                 series: <CircularSeries>[
@@ -130,8 +131,7 @@ class Home extends StatelessWidget {
         Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
           TextButton(
             onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Home()));
+              print("HI");
             },
             child: TextWidget(
               text: "المزيد",
@@ -147,31 +147,29 @@ class Home extends StatelessWidget {
             fontWeight: FontWeight.w700,
           ),
         ]),
-        MyWidget(
-            text: "الدخل",
-            text2: "600",
-            icons2: Icons.money_sharp,
-            color23: ("#519872"),
-            color1: ("#519872")),
-        MyWidget(
-            text: "المصروفات",
-            text2: "600",
-            icons2: Icons.money,
-            color23: ("#EBA90D"),
-            color1: ("#EBA90D")),
-        MyWidget(
-          text: "الادخار",
-          text2: "6000",
-          icons2: Icons.flag,
-          color23: ("#519872"),
-          color1: "#519872",
+        CardHome(
+          text: 'الدخل',
+          money: ' ١٠٠٠',
+          icon: Icons.paid,
+          color: ThemeApp.darkGreen,
         ),
-        MyWidget(
-          text: "الادخار",
-          text2: "6000",
-          icons2: Icons.flag,
-          color23: ("#519872"),
-          color1: "#519872",
+        CardHome(
+          text: 'المصروفات',
+          money: '٢٠٠',
+          color: ThemeApp.darkOrange,
+          icon: Icons.shopping_cart,
+        ),
+        CardHome(
+          text: 'الادخار',
+          money: '٣٠٠',
+          color: ThemeApp.green,
+          icon: Icons.savings,
+        ),
+        CardHome(
+          text: 'الالتزمات',
+          money: '٣٥٠',
+          color: ThemeApp.orange,
+          icon: Icons.money,
         ),
       ]),
     );

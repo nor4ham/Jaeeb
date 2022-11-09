@@ -9,5 +9,6 @@ class ThemeApp {
   static const Color white = Colors.white;
   static const Color black = Colors.black;
   static const Color whiteGray = Color.fromARGB(255, 231, 228, 228);
+  static const Color gray=Color(0xFF999999);
   static var font = GoogleFonts.ibmPlexSansArabic();
 }

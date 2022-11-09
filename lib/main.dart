@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       defaultTransition: Transition.fade,
       getPages: appRoutes(),
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.grey,
       ),
     );
   }

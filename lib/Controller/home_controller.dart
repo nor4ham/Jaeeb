@@ -11,7 +11,7 @@ class HomeController extends GetxController {
       GDPData("الدخل", 600),
       GDPData("المصروفات", 300),
       GDPData("الادخار", 200),
-      GDPData("الادخار", 200),
+      GDPData("الالتزامات", 200),
     ];
     return chartData;
   }

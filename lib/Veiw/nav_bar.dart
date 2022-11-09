@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 
 import '../theme app.dart';
 import 'home_veiw.dart';
-import 'widgets/text.dart';
+import 'transaction_veiw.dart';
+import 'widgets/text_widget.dart';
 
 class NavBar extends StatefulWidget {
   NavBar({super.key});
@@ -14,21 +15,12 @@ class NavBar extends StatefulWidget {
 
 class _NavBarState extends State<NavBar> {
   int _currentIndex = 0;
-  PageController _pageController = PageController(initialPage: 0);
+  PageController _pageController = PageController(initialPage: 2);
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      appBar: AppBar(
-        title: TextWidget(
-          text: 'جيب',
-          color: ThemeApp.white,
-          fontSize: 20,
-          fontWeight: FontWeight.w700,
-        ),
-        backgroundColor: ThemeApp.darkGreen,
-      ),
       body: Container(
         padding: EdgeInsets.all(20),
         child: SizedBox.expand(
@@ -40,9 +32,7 @@ class _NavBarState extends State<NavBar> {
               Container(
                 color: ThemeApp.orange,
               ),
-              Container(
-                color: ThemeApp.darkOrange,
-              ),
+              Transaction(),
               Container(
                 color: ThemeApp.orange,
               ),
