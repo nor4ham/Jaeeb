@@ -6,17 +6,22 @@ class TextWidget extends StatelessWidget {
   Color color;
   double fontSize;
   FontWeight fontWeight;
-  TextWidget({required this.text, required this.color,required this.fontSize,required this.fontWeight, super.key});
+  TextDecoration? decoration;
+  TextWidget(
+      {this.decoration,required this.text,
+      required this.color,
+      required this.fontSize,
+      required this.fontWeight,
+      super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      text, 
-      style: GoogleFonts.ibmPlexSansArabic(
-        color:color,
-        fontSize:fontSize,
-        fontWeight:fontWeight,
-      )
-      );
+    return Text(text,
+        style: GoogleFonts.ibmPlexSansArabic(
+          decoration: decoration,
+          color: color,
+          fontSize: fontSize,
+          fontWeight: fontWeight,
+        ));
   }
 }

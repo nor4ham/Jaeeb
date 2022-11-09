@@ -1,3 +1,6 @@
+
+
+
 // ignore_for_file: unnecessary_new
 
 import 'package:get/get.dart';
@@ -6,19 +9,18 @@ import 'package:flutter/material.dart';
 import '../Veiw/widgets/text_widget.dart';
 import '../theme app.dart';
 
-class NeedsController extends GetxController {
+class ExtraIncomeController extends GetxController {
   Rx<TextEditingController> controllerMoney = TextEditingController().obs;
   Rx<TextEditingController> controllerDate = TextEditingController().obs;
-  final toggleValue = false.obs;
-  String dropdownvalue = 'فاتوره الكهرباء ';
+  String dropdownvalue = ' دوام جزئي';
   var items = [
     DropdownMenuItem(
-      value: 'فاتوره الكهرباء ',
+      value: 'دوام جزئي',
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           TextWidget(
-            text: 'فاتوره الكهرباء',
+            text: 'دوام جزئي',
             color: ThemeApp.black,
             fontSize: 14,
             fontWeight: FontWeight.w800,
@@ -27,19 +29,19 @@ class NeedsController extends GetxController {
             width: 10,
           ),
           const Icon(
-            Icons.emoji_objects,
+            Icons.store,
             color: ThemeApp.darkGreen,
           ),
         ],
       ),
     ),
     DropdownMenuItem(
-      value: 'فاتوره الماء ',
+      value: 'عمل حر ',
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           TextWidget(
-            text: 'فاتوره الماء',
+            text: 'عمل حر ',
             color: ThemeApp.black,
             fontSize: 14,
             fontWeight: FontWeight.w800,
@@ -47,46 +49,11 @@ class NeedsController extends GetxController {
           const SizedBox(
             width: 10,
           ),
-          const Icon(Icons.water_drop, color: ThemeApp.darkGreen),
+          const Icon(Icons.restaurant_menu, color: ThemeApp.darkGreen),
         ],
       ),
     ),
-    DropdownMenuItem(
-      value: 'فاتوره الجوال ',
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          TextWidget(
-            text: 'فاتوره الجوال',
-            color: ThemeApp.black,
-            fontSize: 14,
-            fontWeight: FontWeight.w800,
-          ),
-          const SizedBox(
-            width: 10,
-          ),
-          const Icon(Icons.phone_iphone, color: ThemeApp.darkGreen),
-        ],
-      ),
-    ),
-    DropdownMenuItem(
-      value: 'نقل ',
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          TextWidget(
-            text: 'نقل',
-            color: ThemeApp.black,
-            fontSize: 14,
-            fontWeight: FontWeight.w800,
-          ),
-          const SizedBox(
-            width: 10,
-          ),
-          const Icon(Icons.directions_bus, color: ThemeApp.darkGreen),
-        ],
-      ),
-    ),
+   
     DropdownMenuItem(
       value: 'اخر ',
       child: Row(

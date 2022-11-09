@@ -18,18 +18,18 @@ class Transaction extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const SizedBox(
+        /*       const SizedBox(
                 width: 40,
-              ),
+              ), */
               TextWidget(
                 text: 'عملية',
                 color: ThemeApp.darkGreen,
-                fontWeight: FontWeight.w700,
-                fontSize: 24,
+                fontWeight: FontWeight.w900,
+                fontSize: 18,
               ),
-              SizedBox(
+       /*        SizedBox(
                 width: 30,
                 height: 30,
                 child: TextButton(
@@ -43,7 +43,7 @@ class Transaction extends StatelessWidget {
                   ),
                   onPressed: () {},
                 ),
-              ),
+              ), */
             ],
           ),
           const SizedBox(

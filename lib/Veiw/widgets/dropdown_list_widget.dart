@@ -6,16 +6,6 @@ import 'package:jaeeb/theme%20app.dart';
 class dropdownListWidget extends StatelessWidget {
   String dropdownvalue;
   var items;
-  /*   final items = [
-    // ignore: unnecessary_new
-    new Item('التسوق', TextWidget(text: 'التسوق', color: ThemeApp.black, fontSize: 14, fontWeight: FontWeight.w800,), Icons.store),
-    new Item('مطعم',TextWidget(text: 'التسوق', color: ThemeApp.black, fontSize: 14, fontWeight: FontWeight.w800,), Icons.restaurant_menu),
-    new Item('قهوة',TextWidget(text: 'التسوق', color: ThemeApp.black, fontSize: 14, fontWeight: FontWeight.w800,), Icons.local_cafe),
-    new Item('نقل', TextWidget(text: 'التسوق', color: ThemeApp.black, fontSize: 14, fontWeight: FontWeight.w800,),Icons.directions_bus),
-    new Item('فواتير',TextWidget(text: 'التسوق', color: ThemeApp.black, fontSize: 14, fontWeight: FontWeight.w800,), Icons.receipt_long),
-    new Item('اخر',TextWidget(text: 'التسوق', color: ThemeApp.black, fontSize: 14, fontWeight: FontWeight.w800,),  Icons.control_point),
-  ]; */
-
   dropdownListWidget(
       {required this.dropdownvalue, required this.items, super.key});
 

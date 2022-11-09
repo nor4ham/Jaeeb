@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/instance_manager.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
@@ -131,9 +132,10 @@ class Home extends StatelessWidget {
         Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
           TextButton(
             onPressed: () {
-              print("HI");
+              Get.toNamed("/AllTransactions");
             },
             child: TextWidget(
+              decoration: TextDecoration.underline,
               text: "المزيد",
               color: ThemeApp.black,
               fontSize: 16,

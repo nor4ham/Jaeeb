@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../theme app.dart';
 import 'home_veiw.dart';
 import 'transaction_veiw.dart';
+import 'widgets/setting_veiw.dart';
 import 'widgets/text_widget.dart';
 
 class NavBar extends StatefulWidget {
@@ -15,7 +16,7 @@ class NavBar extends StatefulWidget {
 
 class _NavBarState extends State<NavBar> {
   int _currentIndex = 0;
-  PageController _pageController = PageController(initialPage: 2);
+  PageController _pageController = PageController(initialPage: 0);
 
   @override
   Widget build(BuildContext context) {
@@ -33,9 +34,7 @@ class _NavBarState extends State<NavBar> {
                 color: ThemeApp.orange,
               ),
               Transaction(),
-              Container(
-                color: ThemeApp.orange,
-              ),
+              Setting(),
             ],
           ),
         ),

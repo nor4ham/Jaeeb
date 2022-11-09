@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jaeeb/theme%20app.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 
 import '../../Controller/needs_controller.dart';
 import 'button.dart';
@@ -8,7 +9,6 @@ import 'date_field.dart';
 import 'dropdown_list_widget.dart';
 import 'text_field.dart';
 import 'text_widget.dart';
-import 'toggle_widget.dart';
 
 NeedsController controller =
     Get.put<NeedsController>(NeedsController(), tag: "data", permanent: true);
@@ -80,7 +80,9 @@ class Needs extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              DateField(controller: controller.controllerDate.value,),
+              DateField(
+                controller: controller.controllerDate.value,
+              ),
               const SizedBox(
                 height: 30,
               ),
@@ -94,12 +96,25 @@ class Needs extends StatelessWidget {
                     fontSize: 14,
                     fontWeight: FontWeight.w900,
                   ),
-                  Text("Toggle"),
+                  Obx(() {
+                    return FlutterSwitch(
+                      width: 40.0,
+                      height: 25.0,
+                      toggleSize: 20.0,
+                      borderRadius: 20.0,
+                      padding: 1.0,
+                      showOnOff: false,
+                      activeColor: ThemeApp.darkGreen,
+                      inactiveColor: ThemeApp.whiteGray,
+                      value: controller.toggleValue.value,
+                      onToggle: (bool value) {
+                        controller.toggleValue.value = value;
+                      },
+                    );
+                  }),
                 ],
               ),
-              const SizedBox(
-                height: 50,
-              )
+              
             ],
           ),
           Column(
@@ -111,7 +126,10 @@ class Needs extends StatelessWidget {
               ),
               ButtonWidget(
                 text: 'اضافة العمليه ',
-                onPressed: () {},
+                onPressed: () {
+                  print("controllerDate " +
+                      controller.controllerMoney.value.text);
+                },
               ),
             ],
           ),
