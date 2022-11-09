@@ -8,6 +8,7 @@ import '../theme app.dart';
 
 class NeedsController extends GetxController {
   Rx<TextEditingController> controllerMoney = TextEditingController().obs;
+  Rx<TextEditingController> controllerDate = TextEditingController().obs;
   String dropdownvalue = 'فاتوره الكهرباء ';
   var items = [
     DropdownMenuItem(
