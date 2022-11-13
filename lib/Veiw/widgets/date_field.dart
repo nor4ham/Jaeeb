@@ -1,53 +1,65 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:jaeeb/theme%20app.dart';
 import 'package:intl/intl.dart' as intel;
 
-class DateField extends StatelessWidget {
+class DateField extends StatefulWidget {
   final TextEditingController controller;
   DateField({required this.controller, super.key});
 
   @override
+  State<DateField> createState() => _DateFieldState();
+}
+
+class _DateFieldState extends State<DateField> {
+  @override
   Widget build(BuildContext context) {
     return Directionality(
       textDirection: TextDirection.rtl,
-      child: Padding(
-        padding: EdgeInsets.only(top: 30),
-        child: TextFormField(
-          controller: controller, //
-          obscureText: true,
-          style: TextStyle(
-            color:ThemeApp.darkGreen,
-            fontSize: 17,
-          ),
-          cursorColor:ThemeApp.darkGreen,
-          decoration: InputDecoration(
-            prefixIcon: Icon(Icons.calendar_today),
-            hintText: 'التاريخ',
-            hintStyle: TextStyle(color: Colors.grey),
-            border: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.grey),
+      child: 
+          
+          TextFormField(
+            controller: widget.controller, //
+            // obscureText: true,
+            style: TextStyle(
+              color: Color.fromRGBO(81, 152, 114, 1),
+              fontSize: 17,
             ),
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.grey),
-            ),
-          ),
-          onTap: () async {
-            DateTime? pickeddate = await showDatePicker(
-                context: context,
-                initialDate: DateTime.now(),
-                firstDate: DateTime(2021),
-                lastDate: DateTime(2022));
-                if (pickeddate != null) {
-                           controller.text =
-                            intel.DateFormat("yyy-dd-mm").format(DateTime.now());
+            cursorColor: Color.fromRGBO(81, 152, 114, 1),
+            decoration: InputDecoration(
+              // icon: Icon(Icons.calendar_today_rounded),
+              prefixIcon: Icon(Icons.calendar_today),
+              hintText: 'التاريخ',
+              hintStyle: TextStyle(color: ThemeApp.whiteGray),
+              border: OutlineInputBorder(
+                borderSide: BorderSide(color:  ThemeApp.whiteGray),
+              ),
 
-                    }
-          },
-        ),
-      ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color:  ThemeApp.whiteGray),
+              ),
+            ),
+            onTap: () async {
+              DateTime? pickeddate = await showDatePicker(
+                  context: context,
+                  initialDate: DateTime.now(),
+                  firstDate: DateTime(2000),
+                  lastDate: DateTime(2101));
+              if (pickeddate != null) {
+                setState(() {
+                  widget.controller.text =
+                      intel.DateFormat("yyy-dd-mm").format(DateTime.now());
+                });
+              }
+            },
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Please enter some text';
+              }
+              return null;
+            },
+          ),
     );
   }
 }

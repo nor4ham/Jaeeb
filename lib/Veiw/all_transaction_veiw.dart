@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../theme app.dart';
-import 'widgets/list.dart';
+import 'widgets/list_transactions.dart';
 import 'widgets/text_widget.dart';
 
 class AllTransactions extends StatelessWidget {

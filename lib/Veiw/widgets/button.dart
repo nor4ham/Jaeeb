@@ -13,11 +13,15 @@ class ButtonWidget extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-        style: TextButton.styleFrom(
-          backgroundColor: ThemeApp.darkGreen,
-        ),
-        onPressed: onPressed,
-        child: TextWidget(color: ThemeApp.white, text:text, fontSize: 14, fontWeight: FontWeight.w800,));
+    return Container(
+      height: 50,
+      child: ElevatedButton(
+          style: TextButton.styleFrom(
+            backgroundColor: ThemeApp.darkGreen,
+            
+          ),
+          onPressed: onPressed,
+          child: TextWidget(color: ThemeApp.white, text:text, fontSize: 14, fontWeight: FontWeight.w800,)),
+    );
   }
 }

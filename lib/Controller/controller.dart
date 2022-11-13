@@ -2,8 +2,12 @@
 
 
 import 'package:get/get.dart';
+import 'package:flutter/material.dart';
 
 class Controller extends GetxController {
+    Rx<TextEditingController> controllerIncome = TextEditingController().obs;
+  Rx<TextEditingController> controllerDate = TextEditingController().obs;
+
   final income = 0.0.obs;
   void onchangedIncome(double num) {
     income.value = num;

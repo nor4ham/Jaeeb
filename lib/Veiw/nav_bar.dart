@@ -2,6 +2,7 @@ import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 
 import '../theme app.dart';
+import 'goals_veiw.dart';
 import 'home_veiw.dart';
 import 'transaction_veiw.dart';
 import 'widgets/setting_veiw.dart';
@@ -16,7 +17,7 @@ class NavBar extends StatefulWidget {
 
 class _NavBarState extends State<NavBar> {
   int _currentIndex = 0;
-  PageController _pageController = PageController(initialPage: 0);
+  PageController _pageController = PageController(initialPage: 1);
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +31,7 @@ class _NavBarState extends State<NavBar> {
             onPageChanged: (index) {},
             children: <Widget>[
               Home(),
-              Container(
-                color: ThemeApp.orange,
-              ),
+              Goals(),
               Transaction(),
               Setting(),
             ],

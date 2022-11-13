@@ -16,10 +16,10 @@ class MyApp extends StatelessWidget {
       title: 'جيب',
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
-      defaultTransition: Transition.fade,
+      defaultTransition: Transition.zoom,
       getPages: appRoutes(),
       theme: ThemeData(
-        primarySwatch: Colors.grey,
+        primarySwatch: Colors.green,
       ),
     );
   }
