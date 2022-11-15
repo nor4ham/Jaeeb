@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:jaeeb/theme%20app.dart';
 import 'package:intl/intl.dart' as intel;
 
@@ -23,23 +24,22 @@ class _DateFieldState extends State<DateField> {
             controller: widget.controller, //
             // obscureText: true,
             style: TextStyle(
-              color: Color.fromRGBO(81, 152, 114, 1),
+              color: ThemeApp.gray,
               fontSize: 17,
             ),
-            cursorColor: Color.fromRGBO(81, 152, 114, 1),
+            cursorColor: ThemeApp.whiteGray,
             decoration: InputDecoration(
               // icon: Icon(Icons.calendar_today_rounded),
               prefixIcon: Icon(Icons.calendar_today),
               hintText: 'التاريخ',
-              hintStyle: TextStyle(color: ThemeApp.whiteGray),
-              border: OutlineInputBorder(
-                borderSide: BorderSide(color:  ThemeApp.whiteGray),
-              ),
-
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color:  ThemeApp.whiteGray),
-              ),
-            ),
+              hintStyle: GoogleFonts.ibmPlexSansArabic(
+                color: ThemeApp.whiteGray,
+                fontSize: 14,
+                fontWeight: FontWeight.w800),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(width: 1, color: ThemeApp.whiteGray),
+                  ),
+                  ),
             onTap: () async {
               DateTime? pickeddate = await showDatePicker(
                   context: context,

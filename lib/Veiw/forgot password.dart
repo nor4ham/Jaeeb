@@ -4,14 +4,12 @@ import 'package:jaeeb/theme%20app.dart';
 
 import '../Controller/controller.dart';
 import 'widgets/button.dart';
-import 'widgets/date_field.dart';
 import 'widgets/text_field.dart';
 import 'widgets/text_widget.dart';
 
-class Income extends StatelessWidget {
-  Income({super.key});
+class ForgotPassword extends StatelessWidget {
+  ForgotPassword({super.key});
   Controller controller = Get.find(tag: "data");
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -30,7 +28,7 @@ class Income extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     TextWidget(
-                      text: 'مرحبا بك',
+                      text: 'نسيت كلمة المرور',
                       color: ThemeApp.darkGreen,
                       fontSize: 18,
                       fontWeight: FontWeight.w900,
@@ -41,7 +39,7 @@ class Income extends StatelessWidget {
                   height: 30,
                 ),
                 TextWidget(
-                  text: 'الراتب الشهري ',
+                  text: 'البريد الالكتروني ',
                   color: ThemeApp.darkGreen,
                   fontSize: 18,
                   fontWeight: FontWeight.w500,
@@ -51,34 +49,18 @@ class Income extends StatelessWidget {
                 ),
                 TextFieldWidget(
                   controller: controller.controllerIncome.value,
-                  hintText: '١٠٠٠ ريال',
+                  hintText: 'altamiminourahcs@gmail.com',
                   validator: () {},
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
-                TextWidget(
-                  text: 'يوم الراتب ',
-                  color: ThemeApp.darkGreen,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500,
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                DateField(
-                  controller: controller.controllerDate.value,
-                ),
-                const SizedBox(
-                  height: 70,
-                ),
+                const SizedBox(height: 30,),
                 ButtonWidget(
-                  text: 'التالي',
+                  text: 'ارسل',
                   onPressed: () {
-                    Get.toNamed("/");
+                    Get.toNamed("/login");
                     print(controller.controllerDate.value.text);
                   },
                 ),
+                
               ],
             ),
           ),

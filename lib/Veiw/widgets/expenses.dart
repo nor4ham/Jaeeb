@@ -41,7 +41,7 @@ class Expenses extends StatelessWidget {
               ),
               TextFieldWidget(
                 controller: controller.controllerMoney.value,
-                hintText: 'المبلغ  ',
+                hintText: 'المبلغ  ', validator: (){},
               ),
               const SizedBox(
                 height: 30,
@@ -92,7 +92,7 @@ class Expenses extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               const SizedBox(
-                height: 50,
+                height: 75,
               ),
               ButtonWidget(
                 text: 'اضافة العمليه ',

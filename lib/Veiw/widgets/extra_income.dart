@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jaeeb/theme%20app.dart';
 
-import '../../Controller/needs_controller.dart';
+import '../../Controller/extra_income_controller.dart';
 import 'button.dart';
 import 'date_field.dart';
 import 'dropdown_list_widget.dart';
@@ -11,8 +11,8 @@ import 'text_field.dart';
 import 'text_widget.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 
-NeedsController controller =
-    Get.put<NeedsController>(NeedsController(), tag: "data", permanent: true);
+ExtraIncomeController controller =
+    Get.put<ExtraIncomeController>(ExtraIncomeController(), tag: "data", permanent: true);
 
 class ExtraIncome extends StatelessWidget {
   const ExtraIncome({super.key});
@@ -42,7 +42,7 @@ class ExtraIncome extends StatelessWidget {
               ),
               TextFieldWidget(
                 controller: controller.controllerMoney.value,
-                hintText: 'المبلغ  ',
+                hintText: 'المبلغ  ', validator: (){},
               ),
               const SizedBox(
                 height: 30,

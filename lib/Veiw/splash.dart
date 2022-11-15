@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:jaeeb/Veiw/widgets/expenses.dart';
 import 'package:jaeeb/theme%20app.dart';
 
 class Splash extends StatefulWidget {
@@ -44,12 +45,18 @@ class MyPhoto extends StatelessWidget {
   Widget build(BuildContext context) {
     // return Container();
     AssetImage assetImage = const AssetImage("images/jaeeb.png");
-    Image image = Image(image: assetImage,width:100,height: 100,);
+    Image image = Image(image: assetImage,fit:BoxFit.fill  );
     return Container(
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
       color: ThemeApp.white,
-      child: image,
+      child: Center(
+        child: Container(
+          height: 200,
+          width: 250,
+          child: image,
+        ),
+      )
     );
   }
 }

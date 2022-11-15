@@ -15,7 +15,7 @@ class dropdownListWidget extends StatelessWidget {
       // ignore: prefer_const_constructors
       decoration: InputDecoration(
           enabledBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: ThemeApp.whiteGray, width: 0.5))),
+          borderSide: BorderSide(color: ThemeApp.whiteGray, width: 0.5))),
       value: dropdownvalue,
       onChanged: (value) {
         print(value);

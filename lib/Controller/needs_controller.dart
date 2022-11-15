@@ -14,95 +14,106 @@ class NeedsController extends GetxController {
   var items = [
     DropdownMenuItem(
       value: 'فاتوره الكهرباء ',
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          TextWidget(
-            text: 'فاتوره الكهرباء',
-            color: ThemeApp.black,
-            fontSize: 14,
-            fontWeight: FontWeight.w800,
-          ),
-          const SizedBox(
-            width: 10,
-          ),
-          const Icon(
-            Icons.emoji_objects,
-            color: ThemeApp.darkGreen,
-          ),
-        ],
+      child: Directionality(
+        textDirection: TextDirection.rtl,
+        child: Row(
+          children: [
+            const Icon(
+              Icons.emoji_objects,
+              color: ThemeApp.darkGreen,
+            ),
+
+            const SizedBox(
+              width: 10,
+            ),
+            TextWidget(
+              text: 'فاتوره الكهرباء',
+              color: ThemeApp.whiteGray,
+              fontSize: 14,
+              fontWeight: FontWeight.w800,
+            ),
+          ],
+        ),
       ),
     ),
     DropdownMenuItem(
       value: 'فاتوره الماء ',
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          TextWidget(
-            text: 'فاتوره الماء',
-            color: ThemeApp.black,
-            fontSize: 14,
-            fontWeight: FontWeight.w800,
-          ),
-          const SizedBox(
-            width: 10,
-          ),
-          const Icon(Icons.water_drop, color: ThemeApp.darkGreen),
-        ],
+      child: Directionality(
+        textDirection: TextDirection.rtl,
+        child: Row(
+          children: [
+            const Icon(Icons.water_drop, color: ThemeApp.darkGreen),
+            const SizedBox(
+              width: 10,
+            ),
+            TextWidget(
+              text: 'فاتوره الماء',
+              color: ThemeApp.whiteGray,
+              fontSize: 14,
+              fontWeight: FontWeight.w800,
+            ),
+          ],
+        ),
       ),
     ),
     DropdownMenuItem(
       value: 'فاتوره الجوال ',
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          TextWidget(
-            text: 'فاتوره الجوال',
-            color: ThemeApp.black,
-            fontSize: 14,
-            fontWeight: FontWeight.w800,
-          ),
-          const SizedBox(
-            width: 10,
-          ),
-          const Icon(Icons.phone_iphone, color: ThemeApp.darkGreen),
-        ],
+      child: Directionality(
+        textDirection: TextDirection.rtl,
+        child: Row(
+          children: [
+            const Icon(Icons.phone_iphone, color: ThemeApp.darkGreen),
+            const SizedBox(
+              width: 10,
+            ),
+            TextWidget(
+              text: 'فاتوره الجوال',
+              color: ThemeApp.whiteGray,
+              fontSize: 14,
+              fontWeight: FontWeight.w800,
+            ),
+          ],
+        ),
       ),
     ),
     DropdownMenuItem(
       value: 'نقل ',
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          TextWidget(
-            text: 'نقل',
-            color: ThemeApp.black,
-            fontSize: 14,
-            fontWeight: FontWeight.w800,
-          ),
-          const SizedBox(
-            width: 10,
-          ),
-          const Icon(Icons.directions_bus, color: ThemeApp.darkGreen),
-        ],
+      child: Directionality(
+        textDirection: TextDirection.rtl,
+        child: Row(
+          children: [
+            const Icon(Icons.directions_bus, color: ThemeApp.darkGreen),
+            const SizedBox(
+              width: 10,
+            ),
+            TextWidget(
+              text: 'نقل',
+              color: ThemeApp.whiteGray,
+              fontSize: 14,
+              fontWeight: FontWeight.w800,
+            ),
+          ],
+        ),
       ),
     ),
     DropdownMenuItem(
       value: 'اخر ',
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          TextWidget(
-            text: 'اخر',
-            color: ThemeApp.black,
-            fontSize: 14,
-            fontWeight: FontWeight.w800,
-          ),
-          const SizedBox(
-            width: 10,
-          ),
-          const Icon(Icons.add_circle, color: ThemeApp.darkGreen),
-        ],
+      child: Directionality(
+        textDirection: TextDirection.rtl,
+        child: Row(
+          children: [
+            const Icon(Icons.add_circle, color: ThemeApp.darkGreen),
+            const SizedBox(
+              width: 10,
+            ),
+            TextWidget(
+              text: 'اخر',
+              color: ThemeApp.whiteGray,
+              fontSize: 14,
+              fontWeight: FontWeight.w800,
+            ),
+          ],
+        ),
       ),
     ),
   ];

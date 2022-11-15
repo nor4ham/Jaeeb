@@ -5,9 +5,12 @@ import '../theme app.dart';
 import 'widgets/list_goals.dart';
 import 'widgets/text_widget.dart';
 
+GoalsController controller = Get.find(tag: "data");
+
 class Goals extends StatelessWidget {
-  Goals({super.key});
-  GoalsController controller = Get.find(tag: "data");
+  final bool isDarkMode;
+  Goals({required this.isDarkMode, super.key});
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -53,7 +56,7 @@ class Goals extends StatelessWidget {
             const SizedBox(
               height: 25,
             ),
-            ListViewOfGoals(),
+            ListViewOfGoals(isDarkMode: isDarkMode,),
           ],
         ),
       ),

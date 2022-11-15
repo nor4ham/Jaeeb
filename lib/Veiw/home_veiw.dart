@@ -2,10 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/instance_manager.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-
+import '../Controller/controller.dart';
 import '../Controller/home_controller.dart';
 import '../theme app.dart';
 import 'widgets/home_card.dart';
@@ -14,6 +13,8 @@ import 'widgets/text_widget.dart';
 class Home extends StatelessWidget {
   Home({super.key});
   HomeController controller = Get.find(tag: "data");
+  Controller mode = Get.find(tag: "data");
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -25,7 +26,7 @@ class Home extends StatelessWidget {
               text: 'الرصيد الحالي',
               fontWeight: FontWeight.w400,
               fontSize: 18,
-              color: ThemeApp.black,
+              color:mode.isDarkMode.value?ThemeApp.whiteGray :ThemeApp.black,
             ),
           ],
         ),
@@ -37,26 +38,27 @@ class Home extends StatelessWidget {
             text: '١٠٠٠ ريال',
             fontWeight: FontWeight.w800,
             fontSize: 18,
-            color: ThemeApp.black,
+            color:mode.isDarkMode.value?ThemeApp.whiteGray :ThemeApp.black,
           ),
         ]),
         const SizedBox(
           height: 10,
         ),
         Container(
-          decoration: const BoxDecoration(
-              color: ThemeApp.white,
+          decoration:BoxDecoration(
+              color:mode.isDarkMode.value?ThemeApp.isDarkMode :ThemeApp.white,
               borderRadius: BorderRadius.all(
                 Radius.circular(31),
               ),
+              // ignore: prefer_const_literals_to_create_immutables
               boxShadow: [
                 BoxShadow(
-                    color: ThemeApp.whiteGray,
+                    color: mode.isDarkMode.value?ThemeApp.isDarkMode :ThemeApp.whiteGray,
                     blurRadius: 1,
                     spreadRadius: 1,
                     offset: Offset(0, 0)),
                 BoxShadow(
-                    color: ThemeApp.whiteGray,
+                    color: mode.isDarkMode.value?ThemeApp.isDarkMode :ThemeApp.whiteGray,
                     blurRadius: 1,
                     spreadRadius: 1,
                     offset: Offset(1, 1))
@@ -73,7 +75,7 @@ class Home extends StatelessWidget {
                   ),
                   TextWidget(
                     text: 'الشهر الحالي',
-                    color: ThemeApp.black,
+                    color: mode.isDarkMode.value?ThemeApp.whiteGray :ThemeApp.black,
                     fontSize: 14,
                     fontWeight: FontWeight.w700,
                   ),
@@ -97,7 +99,7 @@ class Home extends StatelessWidget {
                         child: TextWidget(
                       text: "الرسم البياني",
                       fontSize: 18,
-                      color: ThemeApp.black,
+                      color: mode.isDarkMode.value?ThemeApp.whiteGray :ThemeApp.black,
                       fontWeight: FontWeight.bold,
                     )),
                   )
@@ -137,14 +139,14 @@ class Home extends StatelessWidget {
             child: TextWidget(
               decoration: TextDecoration.underline,
               text: "المزيد",
-              color: ThemeApp.black,
+              color: mode.isDarkMode.value?ThemeApp.whiteGray :ThemeApp.black,
               fontSize: 16,
               fontWeight: FontWeight.w700,
             ),
           ),
           TextWidget(
             text: "مجموع العمليات",
-            color: ThemeApp.black,
+            color: mode.isDarkMode.value?ThemeApp.whiteGray :ThemeApp.black,
             fontSize: 16,
             fontWeight: FontWeight.w700,
           ),
@@ -153,25 +155,28 @@ class Home extends StatelessWidget {
           text: 'الدخل',
           money: ' ١٠٠٠',
           icon: Icons.paid,
-          color: ThemeApp.darkGreen,
+          color: ThemeApp.darkGreen, isDarkMode: mode.isDarkMode.value
         ),
         CardHome(
           text: 'المصروفات',
           money: '٢٠٠',
           color: ThemeApp.darkOrange,
           icon: Icons.shopping_cart,
+          isDarkMode: mode.isDarkMode.value
         ),
         CardHome(
           text: 'الادخار',
           money: '٣٠٠',
           color: ThemeApp.green,
           icon: Icons.savings,
+          isDarkMode: mode.isDarkMode.value
         ),
         CardHome(
           text: 'الالتزمات',
           money: '٣٥٠',
           color: ThemeApp.orange,
           icon: Icons.money,
+          isDarkMode: mode.isDarkMode.value
         ),
       ]),
     );

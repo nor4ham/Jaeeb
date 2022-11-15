@@ -12,65 +12,78 @@ import '../theme app.dart';
 class ExtraIncomeController extends GetxController {
   Rx<TextEditingController> controllerMoney = TextEditingController().obs;
   Rx<TextEditingController> controllerDate = TextEditingController().obs;
-  String dropdownvalue = ' دوام جزئي';
+  final toggleValue = false.obs;
+  String dropdownvalue = 'دوام جزئي';
   var items = [
     DropdownMenuItem(
       value: 'دوام جزئي',
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          TextWidget(
-            text: 'دوام جزئي',
-            color: ThemeApp.black,
-            fontSize: 14,
-            fontWeight: FontWeight.w800,
-          ),
-          const SizedBox(
-            width: 10,
-          ),
-          const Icon(
-            Icons.store,
-            color: ThemeApp.darkGreen,
-          ),
-        ],
+      child: Directionality(
+        textDirection: TextDirection.rtl,
+        child: Row(
+          children: [
+            const Icon(
+              Icons.work,
+              color: ThemeApp.darkGreen,
+            ),
+            const SizedBox(
+              width: 10,
+            ),
+            TextWidget(
+              text: 'دوام جزئي',
+              color: ThemeApp.whiteGray,
+              fontSize: 14,
+              fontWeight: FontWeight.w800,
+            ),         
+          ],
+        ),
       ),
     ),
     DropdownMenuItem(
       value: 'عمل حر ',
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          TextWidget(
-            text: 'عمل حر ',
-            color: ThemeApp.black,
-            fontSize: 14,
-            fontWeight: FontWeight.w800,
-          ),
-          const SizedBox(
-            width: 10,
-          ),
-          const Icon(Icons.restaurant_menu, color: ThemeApp.darkGreen),
-        ],
+      child: Directionality(
+        textDirection: TextDirection.rtl,
+        child: Row(
+          children: [
+            const Icon(Icons.auto_graph, color: ThemeApp.darkGreen),
+            const SizedBox(
+              width: 10,
+            ),
+            TextWidget(
+              text: 'عمل حر ',
+              color: ThemeApp.whiteGray,
+              fontSize: 14,
+              fontWeight: FontWeight.w800,
+            ),
+           
+          
+          ],
+        ),
       ),
     ),
    
     DropdownMenuItem(
       value: 'اخر ',
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          TextWidget(
-            text: 'اخر',
-            color: ThemeApp.black,
-            fontSize: 14,
-            fontWeight: FontWeight.w800,
-          ),
-          const SizedBox(
-            width: 10,
-          ),
-          const Icon(Icons.add_circle, color: ThemeApp.darkGreen),
-        ],
+      child: Directionality(
+        textDirection: TextDirection.rtl,
+        child: Row(
+          children: [
+            const Icon(Icons.add_circle, color: ThemeApp.darkGreen),
+
+            const SizedBox(
+              width: 10,
+            ),
+            TextWidget(
+              text: 'اخر',
+              color: ThemeApp.whiteGray,
+              fontSize: 14,
+              fontWeight: FontWeight.w800,
+            ),
+          ],
+        ),
       ),
     ),
   ];
+
+
+
 }

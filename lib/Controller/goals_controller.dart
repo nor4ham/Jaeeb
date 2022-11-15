@@ -62,7 +62,7 @@ class GoalsController extends GetxController {
                           const SizedBox(height: 13),
                           TextFieldWidget(
                             hintText: 'سياره',
-                            controller: controllerName.value,
+                            controller: controllerName.value, validator: (){},
                           ),
                           const SizedBox(
                             height: 10,
@@ -79,7 +79,7 @@ class GoalsController extends GetxController {
                           const SizedBox(height: 13),
                           TextFieldWidget(
                             hintText: '٢٠٠٠٠٠ ريال',
-                            controller: controllerTotal.value,
+                            controller: controllerTotal.value, validator: (){},
                           ),
                           const SizedBox(
                             height: 10,
@@ -97,7 +97,7 @@ class GoalsController extends GetxController {
                           const SizedBox(height: 13),
                           TextFieldWidget(
                             hintText: '٢٠٠٠ ريال',
-                            controller: controllerMoney.value,
+                            controller: controllerMoney.value, validator: (){},
                           ),
                           const SizedBox(height: 80),
                           ButtonWidget(

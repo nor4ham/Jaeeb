@@ -4,12 +4,12 @@ import 'package:jaeeb/theme%20app.dart';
 
 import '../Controller/controller.dart';
 import 'widgets/button.dart';
-import 'widgets/date_field.dart';
+import 'widgets/password_field.dart';
 import 'widgets/text_field.dart';
 import 'widgets/text_widget.dart';
 
-class Income extends StatelessWidget {
-  Income({super.key});
+class signUp extends StatelessWidget {
+  signUp({super.key});
   Controller controller = Get.find(tag: "data");
 
   @override
@@ -30,7 +30,7 @@ class Income extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     TextWidget(
-                      text: 'مرحبا بك',
+                      text: 'تسجيل جديد ',
                       color: ThemeApp.darkGreen,
                       fontSize: 18,
                       fontWeight: FontWeight.w900,
@@ -41,7 +41,7 @@ class Income extends StatelessWidget {
                   height: 30,
                 ),
                 TextWidget(
-                  text: 'الراتب الشهري ',
+                  text: 'البريد الالكتروني ',
                   color: ThemeApp.darkGreen,
                   fontSize: 18,
                   fontWeight: FontWeight.w500,
@@ -51,14 +51,14 @@ class Income extends StatelessWidget {
                 ),
                 TextFieldWidget(
                   controller: controller.controllerIncome.value,
-                  hintText: '١٠٠٠ ريال',
+                  hintText: 'altamiminourahcs@gmail.com',
                   validator: () {},
                 ),
                 const SizedBox(
                   height: 10,
                 ),
-                TextWidget(
-                  text: 'يوم الراتب ',
+                 TextWidget(
+                  text: 'الرقم السري  ',
                   color: ThemeApp.darkGreen,
                   fontSize: 18,
                   fontWeight: FontWeight.w500,
@@ -66,18 +66,49 @@ class Income extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
-                DateField(
+                PasswordFieldWidget(
                   controller: controller.controllerDate.value,
+                  hintText: 'fgg46893dw2',
+                  validator: () {},
                 ),
                 const SizedBox(
-                  height: 70,
+                  height: 10,
+                ),
+                 TextWidget(
+                  text: ' تاكيد الرقم السري ',
+                  color: ThemeApp.darkGreen,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                PasswordFieldWidget(
+                  controller: controller.controllerDate.value,
+                  hintText: 'fgg46893dw2',
+                  validator: () {},
+                ),
+                const SizedBox(
+                  height: 50,
                 ),
                 ButtonWidget(
-                  text: 'التالي',
+                  text: 'تسجيل ',
                   onPressed: () {
                     Get.toNamed("/");
                     print(controller.controllerDate.value.text);
                   },
+                ),
+                TextButton(
+                  onPressed: () {
+                    Get.toNamed("/signup");
+                    },
+                  child: TextWidget(
+                    decoration: TextDecoration.underline,
+                    text: "تسجيل الدخول",
+                    color:ThemeApp.black,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
               ],
             ),
