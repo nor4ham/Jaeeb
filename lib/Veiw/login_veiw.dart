@@ -77,9 +77,8 @@ class Login extends StatelessWidget {
                     height: 30,
                   ),
                   SocialLoginButton(
-                    buttonType: ;\
-                ]][[oSocialLoginButtonType.appleBlack,
-                    te;,  xt: 'Apple',
+                    buttonType: SocialLoginButtonType.appleBlack,
+                    text: 'Apple',
                     onPressed: () {},
                     ),
                   const SizedBox(height: 10),
