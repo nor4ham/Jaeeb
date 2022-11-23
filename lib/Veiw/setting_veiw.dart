@@ -2,11 +2,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../Controller/controller.dart';
+import '../Controller/controller_income.dart';
 import '../theme app.dart';
 import 'widgets/text_widget.dart';
 
 class Setting extends StatelessWidget {
   Controller controller = Get.find(tag: "data");
+  ControllerIncome name  = Get.find(tag: "data");
   Setting({super.key});
   @override
   Widget build(BuildContext context) {
@@ -31,7 +33,7 @@ class Setting extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextWidget(
-              text: 'محمد ',
+              text:name.incoms[0].name.toString() ,
               color:controller.isDarkMode.value? ThemeApp.whiteGray:ThemeApp.black,
               fontSize: 16,
               fontWeight: FontWeight.w900,

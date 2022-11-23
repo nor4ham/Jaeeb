@@ -1,11 +1,16 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import '../Controller/controller.dart';
+import '../Controller/controller_income.dart';
+import '../Controller/expenses_controller.dart';
+import '../Controller/extra_income_controller.dart';
+import '../Controller/goals_controller.dart';
 import '../Controller/home_controller.dart';
+import '../Controller/needs_controller.dart';
 import '../theme app.dart';
 import 'widgets/home_card.dart';
 import 'widgets/text_widget.dart';
@@ -14,7 +19,11 @@ class Home extends StatelessWidget {
   Home({super.key});
   HomeController controller = Get.find(tag: "data");
   Controller mode = Get.find(tag: "data");
-
+  ControllerIncome income = Get.find(tag: "data");
+  ExpensesController expenses = Get.find(tag: "data");
+  NeedsController needs = Get.find(tag: "data");
+  ExtraIncomeController extraIncome = Get.find(tag: "data");
+  GoalsController saving = Get.find(tag: "data");
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -35,7 +44,7 @@ class Home extends StatelessWidget {
         ),
         Row(mainAxisAlignment: MainAxisAlignment.end, children: [
           TextWidget(
-            text: '١٠٠٠ ريال',
+            text:' هو '+income.currentIncome(income.incoms[0].income,needs.total.value,expenses.total.value,extraIncome.total.value,saving.total.value).toString() +' ريال ',
             fontWeight: FontWeight.w800,
             fontSize: 18,
             color:mode.isDarkMode.value?ThemeApp.whiteGray :ThemeApp.black,
@@ -65,7 +74,7 @@ class Home extends StatelessWidget {
               ]),
           child: Column(
             children: [
-              Row(
+               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Image.network(
@@ -85,7 +94,7 @@ class Home extends StatelessWidget {
                     width: 40,
                   ),
                 ],
-              ),
+              ), 
               SfCircularChart(
                 palette: const <Color>[
                   ThemeApp.darkGreen,
@@ -114,7 +123,7 @@ class Home extends StatelessWidget {
                     textStyle: GoogleFonts.ibmPlexSansArabic(fontSize: 15)),
                 series: <CircularSeries>[
                   DoughnutSeries<GDPData, String>(
-                      dataSource: controller.chartData,
+                      dataSource: controller.GetChartData(income.incoms[0].income,expenses.total.value,saving.total.value,needs.total.value),
                       xValueMapper: (GDPData data, _) => data.continent,
                       yValueMapper: (GDPData data, _) => data.gdp,
                       radius: '80%',
@@ -153,27 +162,27 @@ class Home extends StatelessWidget {
         ]),
         CardHome(
           text: 'الدخل',
-          money: ' ١٠٠٠',
+          money: income.incoms[0].income.toString(),
           icon: Icons.paid,
           color: ThemeApp.darkGreen, isDarkMode: mode.isDarkMode.value
         ),
         CardHome(
           text: 'المصروفات',
-          money: '٢٠٠',
+          money: expenses.total.value.toString(),
           color: ThemeApp.darkOrange,
           icon: Icons.shopping_cart,
           isDarkMode: mode.isDarkMode.value
         ),
         CardHome(
           text: 'الادخار',
-          money: '٣٠٠',
+          money: saving.total.value.toString(),
           color: ThemeApp.green,
           icon: Icons.savings,
           isDarkMode: mode.isDarkMode.value
         ),
         CardHome(
           text: 'الالتزمات',
-          money: '٣٥٠',
+          money: needs.total.value.toString(),
           color: ThemeApp.orange,
           icon: Icons.money,
           isDarkMode: mode.isDarkMode.value

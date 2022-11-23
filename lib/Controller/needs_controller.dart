@@ -10,7 +10,9 @@ class NeedsController extends GetxController {
   Rx<TextEditingController> controllerMoney = TextEditingController().obs;
   Rx<TextEditingController> controllerDate = TextEditingController().obs;
   final toggleValue = false.obs;
-  String dropdownvalue = 'فاتوره الكهرباء ';
+  var needs = [].obs;
+  var total = 0.0.obs;
+  final dropdownvalue = 'فاتوره الكهرباء '.obs;
   var items = [
     DropdownMenuItem(
       value: 'فاتوره الكهرباء ',
@@ -22,7 +24,6 @@ class NeedsController extends GetxController {
               Icons.emoji_objects,
               color: ThemeApp.darkGreen,
             ),
-
             const SizedBox(
               width: 10,
             ),

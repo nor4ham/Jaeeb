@@ -31,7 +31,7 @@ class CardHome extends StatelessWidget {
             Row(
               children: [
                 TextWidget(
-                  text: "ريال",
+                  text: " ريال ",
                   color: color,
                   fontSize: 14,
                   fontWeight: FontWeight.w700,

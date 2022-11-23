@@ -12,9 +12,8 @@ class ThemeApp {
   static const Color gray=Color(0xFF999999);
   static var font = GoogleFonts.ibmPlexSansArabic();
   static const Color isDarkModeMian=Color.fromARGB(255, 0, 0, 0);
-/*   static const Color isDarkMode =Color.fromARGB(255, 51, 91, 71);
- */
-/*   static const Color isDarkMode =Color.fromARGB(255, 16, 37, 27); */
+  static const Color delete =Color.fromARGB(255, 194, 30, 30);
+
   static const Color isDarkMode =Color.fromARGB(255, 33, 52, 42); 
 
 }

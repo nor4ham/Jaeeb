@@ -1,18 +1,26 @@
+// ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jaeeb/theme%20app.dart';
 
+import '../../Controller/controller.dart';
 import '../../Controller/extra_income_controller.dart';
+import '../../Model/jaeeb_calsses.dart';
+import '../../validation.dart';
+import 'alert.dart';
 import 'button.dart';
 import 'date_field.dart';
-import 'dropdown_list_widget.dart';
 import 'text_field.dart';
 import 'text_widget.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 
-ExtraIncomeController controller =
-    Get.put<ExtraIncomeController>(ExtraIncomeController(), tag: "data", permanent: true);
+ExtraIncomeController controller = Get.put<ExtraIncomeController>(
+    ExtraIncomeController(),
+    tag: "data",
+    permanent: true);
+Controller operations =
+    Get.put<Controller>(Controller(), tag: "data", permanent: true);
 
 class ExtraIncome extends StatelessWidget {
   const ExtraIncome({super.key});
@@ -42,7 +50,8 @@ class ExtraIncome extends StatelessWidget {
               ),
               TextFieldWidget(
                 controller: controller.controllerMoney.value,
-                hintText: 'المبلغ  ', validator: (){},
+                hintText: 'المبلغ  ',
+                validator: () {},
               ),
               const SizedBox(
                 height: 30,
@@ -60,8 +69,17 @@ class ExtraIncome extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              dropdownListWidget(
-                dropdownvalue: controller.dropdownvalue,
+              DropdownButtonFormField(
+                decoration: InputDecoration(
+                    enabledBorder: const OutlineInputBorder(
+                        borderSide:
+                            BorderSide(color: ThemeApp.whiteGray, width: 0.5))),
+                value: controller.dropdownvalue.value,
+                onChanged: (value) {
+                  controller.dropdownvalue.value = value!;
+                },
+                icon: const Visibility(
+                    visible: false, child: Icon(Icons.arrow_downward)),
                 items: controller.items,
               ),
               const SizedBox(
@@ -80,21 +98,22 @@ class ExtraIncome extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              DateField(controller: controller.controllerDate.value,),
+              DateField(
+                controller: controller.controllerDate.value,
+              ),
               const SizedBox(
                 height: 30,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  // ToggleWidget(),
                   TextWidget(
                     text: 'احتساب الالتزام كل شهر ',
                     color: ThemeApp.darkGreen,
                     fontSize: 14,
                     fontWeight: FontWeight.w900,
                   ),
-                           Obx(() {
+                  Obx(() {
                     return FlutterSwitch(
                       width: 40.0,
                       height: 25.0,
@@ -122,9 +141,76 @@ class ExtraIncome extends StatelessWidget {
                 height: 50,
               ),
               ButtonWidget(
-                text: 'اضافة العمليه ',
-                onPressed: () {print("controllerDate "+controller.controllerMoney.value.text);},
-              ),
+                  text: 'اضافة العمليه ',
+                  onPressed: () {
+                    if (!RegExp(validation_number)
+                            .hasMatch(controller.controllerMoney.value.text) ||
+                        controller.controllerMoney.value.text == '' ||
+                        controller.controllerDate.value.text == '') {
+                      showDialog<String>(
+                          context: context,
+                          builder: (BuildContext context) => Alert(
+                                text: 'القيمة المدخلة خاطئة',
+                                color: ThemeApp.darkOrange,
+                                icon: Icons.info,
+                              ));
+                    } else {
+                      if (controller.dropdownvalue.value == 'دوام جزئي') {
+                        controller.extraIncome.add(ExtraIncom(
+                            double.parse(controller.controllerMoney.value.text),
+                            Category('دوام جزئي', Icons.work),
+                            DateTime.parse(
+                                controller.controllerDate.value.text),
+                            controller.toggleValue.value));
+                        operations.operations.add(ExtraIncom(
+                            double.parse(controller.controllerMoney.value.text),
+                            Category('دوام جزئي', Icons.work),
+                            DateTime.parse(
+                                controller.controllerDate.value.text),
+                            controller.toggleValue.value));
+                      } else if (controller.dropdownvalue.value == 'عمل حر ') {
+                        controller.extraIncome.add(ExtraIncom(
+                            double.parse(controller.controllerMoney.value.text),
+                            Category('عمل حر ', Icons.auto_graph),
+                            DateTime.parse(
+                                controller.controllerDate.value.text),
+                            controller.toggleValue.value));
+                        operations.operations.add(ExtraIncom(
+                            double.parse(controller.controllerMoney.value.text),
+                            Category('عمل حر ', Icons.auto_graph),
+                            DateTime.parse(
+                                controller.controllerDate.value.text),
+                            controller.toggleValue.value));
+                      } else {
+                        controller.extraIncome.add(ExtraIncom(
+                            double.parse(controller.controllerMoney.value.text),
+                            Category('اخر', Icons.add_circle),
+                            DateTime.parse(
+                                controller.controllerDate.value.text),
+                            controller.toggleValue.value));
+                        operations.operations.add(ExtraIncom(
+                            double.parse(controller.controllerMoney.value.text),
+                            Category('اخر', Icons.add_circle),
+                            DateTime.parse(
+                                controller.controllerDate.value.text),
+                            controller.toggleValue.value));
+                      }
+                      controller.total.value +=
+                          double.parse(controller.controllerMoney.value.text);
+                      print(controller.total.value);
+                      showDialog<String>(
+                          context: context,
+                          builder: (BuildContext context) => Alert(
+                                text: 'تمت الاضافه بنجاح',
+                                color: ThemeApp.darkGreen,
+                                icon: Icons.check_circle,
+                              ));
+                      controller.controllerMoney.value.text = '';
+                      controller.controllerDate.value.text = '';
+                      controller.dropdownvalue.value = 'دوام جزئي';
+                      controller.toggleValue.value = false;
+                    }
+                  }),
             ],
           ),
         ],

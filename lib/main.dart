@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:jaeeb/routes.dart';
-import 'package:jaeeb/theme%20app.dart';
 
-void main() async{
-  await GetStorage.init();  
-  runApp(const MyApp());
+void main() async {
+
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -18,7 +17,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'جيب',
       debugShowCheckedModeBanner: false,
-      initialRoute: '/login',
+      initialRoute: '/splash',
       defaultTransition: Transition.zoom,
       getPages: appRoutes(),
       theme: ThemeData(

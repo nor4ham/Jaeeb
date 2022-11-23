@@ -1,7 +1,7 @@
 
 
 
-// ignore_for_file: unnecessary_new
+// ignore_for_file: unnecessary_new, non_constant_identifier_names
 
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
@@ -12,8 +12,10 @@ import '../theme app.dart';
 class ExtraIncomeController extends GetxController {
   Rx<TextEditingController> controllerMoney = TextEditingController().obs;
   Rx<TextEditingController> controllerDate = TextEditingController().obs;
+  var extraIncome = [].obs;
+  var total = 0.0.obs;
   final toggleValue = false.obs;
-  String dropdownvalue = 'دوام جزئي';
+    final dropdownvalue = 'دوام جزئي'.obs;
   var items = [
     DropdownMenuItem(
       value: 'دوام جزئي',

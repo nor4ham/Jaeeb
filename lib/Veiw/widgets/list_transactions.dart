@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+import '../../Controller/controller.dart';
 import '../../theme app.dart';
 import 'text_widget.dart';
+  Controller operations =Get.put<Controller>(Controller(), tag: "data", permanent: true);
 
 class ListViewOfTransactions extends StatelessWidget {
   ListViewOfTransactions({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       shrinkWrap: true,
-      itemCount: 2 /* controller.expenses.length */,
+      itemCount: operations.operations.length /* controller.expenses.length */,
       itemBuilder: (context, index) {
         return CardTransaction(
           index: index,
@@ -38,7 +42,7 @@ class CardTransaction extends StatelessWidget {
             Row(
               children: [
                 Icon(
-                  Icons.add,
+                 operations.operations[index].category.icon,
                   size: 47,
                   color: ThemeApp.darkGreen,
                 ),
@@ -49,17 +53,17 @@ class CardTransaction extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     TextWidget(
-                      text: 'كلام ',
+                      text: operations.operations[index].category.name,
                       color: ThemeApp.black,
                       fontSize: 14,
                       fontWeight: FontWeight.w900,
                     ),
                     TextWidget(
-                      text: 22.toString() +
+                      text: operations.operations[index].date.day.toString() +
                           "-" +
-                          22.toString() +
+                          operations.operations[index].date.month.toString()+
                           "-" +
-                          2222.toString(),
+                          operations.operations[index].date.year.toString(),
                       color: ThemeApp.black,
                       fontSize: 14,
                       fontWeight: FontWeight.w400,
@@ -72,7 +76,7 @@ class CardTransaction extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 TextWidget(
-                  text: 22.toString() + " ريال",
+                  text:operations.operations[index].cost.toString() + " ريال",
                   color: ThemeApp.darkOrange,
                   fontSize: 14,
                   fontWeight: FontWeight.w500,

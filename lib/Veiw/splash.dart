@@ -19,7 +19,7 @@ class _SplashState extends State<Splash> {
 
   _navigatetohome() async {
     await Future.delayed(Duration(milliseconds: 1600), () {});
-    Get.toNamed("/income");
+    Get.toNamed("/login");
   }
 
   @override

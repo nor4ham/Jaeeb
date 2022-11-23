@@ -1,19 +1,17 @@
 import 'package:get/get.dart';
 class HomeController extends GetxController {
 
-  List<GDPData> ? chartData;
-  List<GDPData> GetChartData() {
+  List<GDPData> GetChartData(double ?income,double ?expenses,double ?needs,double ?saving) {
     final List<GDPData> chartData = [
-      GDPData("الدخل", 600),
-      GDPData("المصروفات", 300),
-      GDPData("الادخار", 200),
-      GDPData("الالتزامات", 200),
+      GDPData("الدخل", income!),
+      GDPData("المصروفات", expenses!),
+      GDPData("الادخار", needs!),
+      GDPData("الالتزامات", saving!),
     ];
     return chartData;
   }
     @override
   void onInit() {
-    chartData = GetChartData();
     super.onInit();
     print("onInit");
   }

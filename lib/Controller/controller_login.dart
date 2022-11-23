@@ -1,18 +1,10 @@
 // ignore_for_file: non_constant_identifier_names, avoid_print ,prefer_interpolation_to_compose_strings, unnecessary_new, camel_case_types, prefer_const_constructors
 
 import 'package:get/get.dart';
+import 'package:flutter/material.dart';
+class ControllerLogin extends GetxController {
+  Rx<TextEditingController> controllerNumber = TextEditingController().obs;
 
-class Controller extends GetxController {
-  var operations = [].obs;
-  final isDarkMode = false.obs;
-  final currentIndex = 0.obs;
-  void changeMode() {
-    isDarkMode.value = !isDarkMode.value;
-    currentIndex.value = 0;
-  }
-
-
-  
   @override
   void onInit() {
     super.onInit();

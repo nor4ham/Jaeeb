@@ -8,7 +8,11 @@ import 'widgets/text_widget.dart';
 
 class Transaction extends StatelessWidget {
   Transaction({super.key});
-  TransactionController controller = Get.find( tag: "data");
+  TransactionController controller = Get.find(tag: "data");
+  void initState() {
+    controller.index.value = 0;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,7 +22,7 @@ class Transaction extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-        /*       const SizedBox(
+              /*       const SizedBox(
                 width: 40,
               ), */
               TextWidget(
@@ -27,21 +31,6 @@ class Transaction extends StatelessWidget {
                 fontWeight: FontWeight.w900,
                 fontSize: 18,
               ),
-       /*        SizedBox(
-                width: 30,
-                height: 30,
-                child: TextButton(
-                  style: TextButton.styleFrom(
-                    backgroundColor: ThemeApp.darkGreen,
-                  ),
-                  child: const Icon(
-                    Icons.arrow_forward,
-                    color: ThemeApp.white,
-                    size: 16,
-                  ),
-                  onPressed: () {},
-                ),
-              ), */
             ],
           ),
           const SizedBox(
@@ -60,13 +49,10 @@ class Transaction extends StatelessWidget {
                   Container(
                     decoration: BoxDecoration(
                         border: Border(
-                      bottom:
-                          BorderSide(
-                            color:controller.colorButtonNeedsLine.value,
-                            width:3
-                            ),
-                          )
-                          ),
+                      bottom: BorderSide(
+                          color: controller.colorButtonNeedsLine.value,
+                          width: 3),
+                    )),
                     child: TextButton(
                       onPressed: () {
                         controller.isNeeds();
@@ -82,13 +68,10 @@ class Transaction extends StatelessWidget {
                   Container(
                     decoration: BoxDecoration(
                         border: Border(
-                      bottom:
-                          BorderSide(
-                            color: controller.colorButtonExpensesLine.value,
-                            width:3
-                            ),
-                            )
-                            ),
+                      bottom: BorderSide(
+                          color: controller.colorButtonExpensesLine.value,
+                          width: 3),
+                    )),
                     child: TextButton(
                       onPressed: () {
                         controller.isExpenses();
@@ -104,11 +87,9 @@ class Transaction extends StatelessWidget {
                   Container(
                     decoration: BoxDecoration(
                         border: Border(
-                      bottom:
-                          BorderSide(
-                            color: controller.colorButtonExtraIncomeLine.value,
-                            width:3
-                            ),
+                      bottom: BorderSide(
+                          color: controller.colorButtonExtraIncomeLine.value,
+                          width: 3),
                     )),
                     child: TextButton(
                       onPressed: () {

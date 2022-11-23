@@ -1,5 +1,3 @@
-
-
 // ignore_for_file: unnecessary_new
 
 import 'package:get/get.dart';
@@ -11,8 +9,9 @@ import '../theme app.dart';
 class ExpensesController extends GetxController {
   Rx<TextEditingController> controllerMoney = TextEditingController().obs;
   Rx<TextEditingController> controllerDate = TextEditingController().obs;
-
-  String dropdownvalue = 'التسوق';
+  var expenses = [].obs;
+  var total = 0.0.obs;
+  final dropdownvalue = 'التسوق'.obs;
   var items = [
     DropdownMenuItem(
       value: 'التسوق',
@@ -20,11 +19,11 @@ class ExpensesController extends GetxController {
         textDirection: TextDirection.rtl,
         child: Row(
           children: [
-          const Icon(
-            Icons.store,
-            color: ThemeApp.darkGreen,
+            const Icon(
+              Icons.store,
+              color: ThemeApp.darkGreen,
             ),
-          const SizedBox(
+            const SizedBox(
               width: 10,
             ),
             TextWidget(
