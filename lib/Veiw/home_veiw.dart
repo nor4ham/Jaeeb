@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:jaeeb/Veiw/setting_veiw.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import '../Controller/controller.dart';
 import '../Controller/controller_income.dart';
@@ -77,22 +78,17 @@ class Home extends StatelessWidget {
                Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Image.network(
-                    "https://i.ibb.co/H76y4Zd/Vector210.png",
-                    height: 50,
-                    width: 40,
-                  ),
+                  SizedBox(width: 60,),
+                  Icon(Icons.arrow_back_ios,size: 30,color: mode.isDarkMode.value?ThemeApp.whiteGray :ThemeApp.black,),
+                  
                   TextWidget(
                     text: 'الشهر الحالي',
                     color: mode.isDarkMode.value?ThemeApp.whiteGray :ThemeApp.black,
                     fontSize: 14,
                     fontWeight: FontWeight.w700,
                   ),
-                  Image.network(
-                    "https://i.ibb.co/N60HQdj/Vector0.png",
-                    height: 50,
-                    width: 40,
-                  ),
+                   Icon(Icons.arrow_forward_ios,size: 30,color: mode.isDarkMode.value?ThemeApp.whiteGray :ThemeApp.black,),
+                   SizedBox(width: 60,),
                 ],
               ), 
               SfCircularChart(
@@ -104,13 +100,12 @@ class Home extends StatelessWidget {
                 ],
                 annotations: <CircularChartAnnotation>[
                   CircularChartAnnotation(
-                    widget: Container(
-                        child: TextWidget(
+                    widget: TextWidget(
                       text: "الرسم البياني",
                       fontSize: 18,
                       color: mode.isDarkMode.value?ThemeApp.whiteGray :ThemeApp.black,
                       fontWeight: FontWeight.bold,
-                    )),
+                    ),
                   )
                 ],
                 legend: Legend(

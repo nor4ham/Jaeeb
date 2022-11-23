@@ -12,131 +12,133 @@ class Setting extends StatelessWidget {
   Setting({super.key});
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        const SizedBox(
-          height: 30,
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          // ignore: prefer_const_literals_to_create_immutables
-          children: [
-            const Icon(
-              Icons.account_circle,
-              size: 150,
-              color: ThemeApp.darkGreen,
-            ),
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            TextWidget(
-              text:name.incoms[0].name.toString() ,
-              color:controller.isDarkMode.value? ThemeApp.whiteGray:ThemeApp.black,
-              fontSize: 16,
-              fontWeight: FontWeight.w900,
-            ),
-          ],
-        ),
-        const SizedBox(
-          height: 30,
-        ),
-        icons(
-          text: "معلومات الحساب",
-          icon: Icons.person,
-         isDarkMode: controller.isDarkMode.value,
-        ),
-        const SizedBox(
-          height: 15,
-        ),
-        SizedBox(
-            height: 3,
-            child: Container(
-              color: ThemeApp.whiteGray,
-            )),
-        const SizedBox(
-          height: 15,
-        ),
-        icons(text: "الاعدادات", icon: Icons.settings, isDarkMode: controller.isDarkMode.value,),
-        const SizedBox(
-          height: 15,
-        ),
-        SizedBox(
-            height: 3,
-            child: Container(
-              color: ThemeApp.whiteGray,
-            )),
-        const SizedBox(
-          height: 15,
-        ),
-        icons(
-          text: "التواصل",
-          icon: Icons.connect_without_contact,
-          isDarkMode: controller.isDarkMode.value,
-        ),
-        const SizedBox(
-          height: 15,
-        ),
-        SizedBox(
-            height: 3,
-            child: Container(
-              color: ThemeApp.whiteGray,
-            )),
-        const SizedBox(
-          height: 15,
-        ),
-        icons(text: "مركز المساعدة", icon: Icons.help, isDarkMode: controller.isDarkMode.value,),
-        const SizedBox(
-          height: 15,
-        ),
-        SizedBox(
-            height: 3,
-            child: Container(
-              color: ThemeApp.whiteGray,
-            )),
-        const SizedBox(
-          height: 15,
-        ),
-        icons(text: "English", icon: Icons.language, isDarkMode: controller.isDarkMode.value,),
-        const SizedBox(
-          height: 15,
-        ),
-        SizedBox(
-            height: 3,
-            child: Container(
-              color: ThemeApp.whiteGray,
-            )),
-        const SizedBox(
-          height: 15,
-        ),
-        Obx(() {
-          return IconButton(
-            icon: icons(
-              text: controller.isDarkMode.value ? "وضع النهار " : "وضع الداكن ",
-              icon: controller.isDarkMode.value
-                  ? Icons.light_mode
-                  : Icons.dark_mode, 
-                  isDarkMode: controller.isDarkMode.value,
-            ),
-            onPressed: () {
-              controller.changeMode();
-            },
-          );
-        }),
-        const SizedBox(
-          height: 15,
-        ),
-        SizedBox(
-            height: 3,
-            child: Container(
-              color: ThemeApp.whiteGray,
-            )),
-        const SizedBox(
-          height: 15,
-        ),
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          const SizedBox(
+            height: 30,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            // ignore: prefer_const_literals_to_create_immutables
+            children: [
+              const Icon(
+                Icons.account_circle,
+                size: 150,
+                color: ThemeApp.darkGreen,
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextWidget(
+                text:name.incoms[0].name.toString() ,
+                color:controller.isDarkMode.value? ThemeApp.whiteGray:ThemeApp.black,
+                fontSize: 16,
+                fontWeight: FontWeight.w900,
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          icons(
+            text: "معلومات الحساب",
+            icon: Icons.person,
+           isDarkMode: controller.isDarkMode.value,
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          SizedBox(
+              height: 3,
+              child: Container(
+                color: ThemeApp.whiteGray,
+              )),
+          const SizedBox(
+            height: 15,
+          ),
+          icons(text: "الاعدادات", icon: Icons.settings, isDarkMode: controller.isDarkMode.value,),
+          const SizedBox(
+            height: 15,
+          ),
+          SizedBox(
+              height: 3,
+              child: Container(
+                color: ThemeApp.whiteGray,
+              )),
+          const SizedBox(
+            height: 15,
+          ),
+          icons(
+            text: "التواصل",
+            icon: Icons.connect_without_contact,
+            isDarkMode: controller.isDarkMode.value,
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          SizedBox(
+              height: 3,
+              child: Container(
+                color: ThemeApp.whiteGray,
+              )),
+          const SizedBox(
+            height: 15,
+          ),
+          icons(text: "مركز المساعدة", icon: Icons.help, isDarkMode: controller.isDarkMode.value,),
+          const SizedBox(
+            height: 15,
+          ),
+          SizedBox(
+              height: 3,
+              child: Container(
+                color: ThemeApp.whiteGray,
+              )),
+          const SizedBox(
+            height: 15,
+          ),
+          icons(text: "English", icon: Icons.language, isDarkMode: controller.isDarkMode.value,),
+          const SizedBox(
+            height: 15,
+          ),
+          SizedBox(
+              height: 3,
+              child: Container(
+                color: ThemeApp.whiteGray,
+              )),
+          const SizedBox(
+            height: 15,
+          ),
+          Obx(() {
+            return IconButton(
+              icon: icons(
+                text: controller.isDarkMode.value ? "وضع النهار " : "وضع الداكن ",
+                icon: controller.isDarkMode.value
+                    ? Icons.light_mode
+                    : Icons.dark_mode, 
+                    isDarkMode: controller.isDarkMode.value,
+              ),
+              onPressed: () {
+                controller.changeMode();
+              },
+            );
+          }),
+          const SizedBox(
+            height: 15,
+          ),
+          SizedBox(
+              height: 3,
+              child: Container(
+                color: ThemeApp.whiteGray,
+              )),
+          const SizedBox(
+            height: 15,
+          ),
+        ],
+      ),
     );
   }
 }
