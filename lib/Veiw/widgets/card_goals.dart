@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../Controller/controller_income.dart';
+import '../../Controller/expenses_controller.dart';
+import '../../Controller/extra_income_controller.dart';
 import '../../Controller/goals_controller.dart';
+import '../../Controller/needs_controller.dart';
 import '../../theme app.dart';
 import 'text_widget.dart';
+
 GoalsController controller = Get.find(tag: "data");
+ControllerIncome income = Get.find(tag: "data");
+ExpensesController expenses = Get.find(tag: "data");
+NeedsController needs = Get.find(tag: "data");
+ExtraIncomeController extraIncome = Get.find(tag: "data");
+GoalsController saving = Get.find(tag: "data");
 
 class CardGoals extends StatelessWidget {
   int index;
@@ -29,32 +39,35 @@ class CardGoals extends StatelessWidget {
             decoration: BoxDecoration(
               color: ThemeApp.delete,
               borderRadius: BorderRadius.circular(15),
-              ),
-              margin: const EdgeInsets.only(top: 10, bottom: 10),
-              child: Row(
-                children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Icon(
-                        Icons.delete,
-                        color: ThemeApp.white,
-                        ),
-                      TextWidget(
-                        color: ThemeApp.white,
-                        text: 'حذف', 
-                        fontSize: 16, 
-                        fontWeight: FontWeight.w400,
-                        ),
-                        ],
-                        ),
-                        ],
-                        ),
-                        ),
-                        ),
-                        ),
+            ),
+            margin: const EdgeInsets.only(top: 10, bottom: 10),
+            child: Row(
+              children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(
+                      Icons.delete,
+                      color: ThemeApp.white,
+                    ),
+                    TextWidget(
+                      color: ThemeApp.white,
+                      text: 'حذف',
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
       onDismissed: (direction) {
+        saving.total.value -= controller.goals[index].money;
         controller.goals.removeAt(index);
+        income.currentIncome(income.incoms[0].income, needs.total.value,
+            expenses.total.value, extraIncome.total.value, saving.total.value);
       },
       child: Container(
         padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
